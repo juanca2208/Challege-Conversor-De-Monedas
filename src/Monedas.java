@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Monedas extends JFrame implements ItemListener,ActionListener{
 	// ATRIBUTOS
@@ -15,6 +16,10 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	public static String selectItem= "";
 	private JButton botonOk;
 	private JButton botonCancelar;
+	private Conversion conversion = new Conversion();
+	public static double valorConvertido2;
+	String valorConvertidoString;
+	String valorAMostrar;
 	
 	// CONSTRUCTOR
 	public Monedas () {
@@ -88,11 +93,11 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		
+		// METODO QUE GUARDA LA OPCION DE CONVERSION POR EJEMPLO DE PESOS A DOLAR
+		// tAMBIEN GUARDA LA INFORMACION DE CONVERSION DE TEMPERATURA
 		if(e.getSource()== combo) {
 			selectItem = combo.getSelectedItem().toString();
-			//System.out.println("Clase Entrada de Valor" +selectItem);
-		}
+			}
 		
 	}
 
@@ -100,11 +105,35 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		// METODO QUE SE DISPARA AL PRESIONAR EL BOTON OK
+		
 		if(e.getSource() == botonOk) {
-			System.out.println("Valor convertido" +EntradaDeValor.valorConvertido);
-			System.out.println(EntradaDeValor.opcionElegidadMP);
+			//System.out.println("Valor convertido" +EntradaDeValor.valorConvertido);
+			//System.out.println(EntradaDeValor.opcionElegidadMP);
+			valorConvertido2 = conversion.relizarConversion(EntradaDeValor.valorConvertido, selectItem);
+			valorConvertidoString = "Tienes $"+ String.valueOf(valorConvertido2);
+			//valorAMostrar = valorConvertidoString.toString(); 
 			setVisible(false);
+			JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.WARNING_MESSAGE);
+			ventanaDeseaContinuar();
+			
 		}
+		
+	}
+	// VENTANA DE DIALLOGO QUE LE CONSULTA AL USUARIO SI DESEA REALIZAR OTRA CONVERSION O FINALIZAR EL PROGRAMA
+	private void ventanaDeseaContinuar() {
+		// TODO Auto-generated method stub
+		int respuesta;
+		respuesta = JOptionPane.showConfirmDialog(null,"¿Desea realizar otra Converison", "Conversor Challege",JOptionPane.YES_NO_CANCEL_OPTION);
+		if(respuesta == 0) {
+			
+			MenuPrincipal mp = new MenuPrincipal();
+			mp.setVisible(true);
+		}else if(respuesta == 1) {
+			JOptionPane.showConfirmDialog(null,"Programa Finalizado","Conversor Challege",JOptionPane.OK_OPTION);
+		}else {
+			
+		}
+			
 		
 	}
 

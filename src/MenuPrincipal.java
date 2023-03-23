@@ -58,23 +58,8 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
     	    
     	    return box;
 		}
-		@Override
-		public void actionPerformed(ActionEvent e ) {
-			if (e.getSource() == btnOk) {
-				/*seleccion =  box.getSelectedItem().toString();
-				setTitle(seleccion);*/
-				EntradaDeValor entrada = new EntradaDeValor();
-				entrada.setVisible(true);
-				setVisible(false);
-				
-			}else if (e.getSource()== btnCancelar) {
-				setVisible(false);
-				Principal.opcionCase = "Boton Cancelar presionado";
-				// Buscar como finalizar el programa
-				
-			}
-			
-		}
+		
+		
 		public JButton crearBtnOk() {
 			
 			btnOk = new JButton();
@@ -94,6 +79,22 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 			return btnCancelar;
 			
 		}
+		// Metodo que se dispara cuando se presiona el boton ok
+				@Override
+				public void actionPerformed(ActionEvent e ) {
+					if (e.getSource() == btnOk) {
+						/*seleccion =  box.getSelectedItem().toString();
+						setTitle(seleccion);*/
+						EntradaDeValor entrada = new EntradaDeValor();
+						entrada.setVisible(true);
+						setVisible(false);
+						
+					}else if (e.getSource()== btnCancelar) {
+						setVisible(false);
+						Principal.opcionCase = "Boton Cancelar presionado";
+						// Buscar como finalizar el programa
+					}
+				}
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {

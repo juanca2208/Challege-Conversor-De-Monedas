@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -43,7 +44,6 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 	private JTextField crearJTextField() {
 		field = new JTextField();
 		field.setBounds(140, 80, 350, 30);
-		
 		return field;
 	}
 
@@ -55,8 +55,6 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 		}else {
 			jLabel.setText("Ingrese el valor de temperatura que deseas convertir");
 		}
-		
-		
 		return jLabel;
 	}
 	
@@ -85,20 +83,18 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 			valorAConvertir = field.getText().toString();
 			try {
 				valorConvertido = Double.parseDouble(valorAConvertir);
-				//Principal.valorASerConvertido = valorConvertido;
-				//System.out.println("Boton OK presionado clase Entrada de valor");
-				//System.out.println(valorConvertido);
 				Monedas monedas = new Monedas();
 				monedas.setVisible(true);
 				setVisible(false);
-				
-				//System.out.println(monedas.getItemSelect());  
-				
-				
+									
 			} catch (Exception e2) {
-				VentanaDeError v = new VentanaDeError();
-				v.setVisible(true);
-				setVisible(false);
+				
+				JOptionPane.showMessageDialog(null,"ERROR SOLO PUEDE INGRESAR NUMEROS","MENSAJE",JOptionPane.ERROR_MESSAGE);
+				field.setText(null);
+				/*VentanaDeError v = new VentanaDeError();
+				v.setVisible(true);*/
+				//setVisible(false);
+				
 			}
 		}else if (e.getSource()== btnCancelar) {
 			setVisible(false);
