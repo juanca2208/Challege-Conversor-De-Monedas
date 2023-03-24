@@ -16,7 +16,9 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 	JLabel jLabel;
 	JButton btnOk;
 	JButton btnCancelar;
+	// El atributo valorAConvertir es el String que se almacena para luego ser convertido a tipo double
 	public static String valorAConvertir= "";
+	// El atributo valorConvertido es el valor convertido a tipo Double 
 	public static double valorConvertido;
 	public static String opcionElegidadMP;
 	
@@ -72,6 +74,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 		btnCancelar = new JButton();
 		btnCancelar.setText("Cancelar");
 		btnCancelar.setBounds(280, 125, 110, 20);
+		btnCancelar.addActionListener(this);
 		return btnCancelar;
 		
 	}
@@ -88,16 +91,12 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 				setVisible(false);
 									
 			} catch (Exception e2) {
-				
 				JOptionPane.showMessageDialog(null,"ERROR SOLO PUEDE INGRESAR NUMEROS","MENSAJE",JOptionPane.ERROR_MESSAGE);
 				field.setText(null);
-				/*VentanaDeError v = new VentanaDeError();
-				v.setVisible(true);*/
-				//setVisible(false);
-				
 			}
 		}else if (e.getSource()== btnCancelar) {
 			setVisible(false);
+			System.exit(0);
 		}
 		
 	}

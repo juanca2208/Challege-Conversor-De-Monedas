@@ -46,7 +46,7 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 		    miJLabel.setBounds(150, 20, 600, 50);
 		    return miJLabel;
 		}
-	    
+	    // COMPONENTE JCOMOBOBOX ES EL MENU DE OPCIONES DE CONVERSION
 		public JComboBox<String> crearJComboBox() {
 			box = new JComboBox<String>();//<>
     	    box.setBounds(160, 70, 240, 25);
@@ -91,15 +91,13 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 						
 					}else if (e.getSource()== btnCancelar) {
 						setVisible(false);
-						Principal.opcionCase = "Boton Cancelar presionado";
-						// Buscar como finalizar el programa
+						System.exit(0);
 					}
 				}
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if(e.getSource()== box) {
-				
 				//tipoDeConversion = box.getSelectedItem().toString();
 				EntradaDeValor.opcionElegidadMP = box.getSelectedItem().toString();
 				
@@ -111,12 +109,7 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 		
 		
 		
-		// componente JTextArea
-	    
-	    	    //JTextArea miJTextArea = new JTextArea(5,20);
-	    
-	    	    // conecta los componentes JLabel y JTextField en JPanel`
-	    
+		
 	    	    
 	    	    
 	    	    
