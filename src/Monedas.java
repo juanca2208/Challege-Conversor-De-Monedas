@@ -117,7 +117,7 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 			setVisible(false);
 			JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
 			ventanaDeseaContinuar();
-		}
+		}// MODIFICAR CODIGO HACER FUNCIONAR BOTON CANCELAR
 		
 	}}
 	// VENTANA DE DIALLOGO QUE LE CONSULTA AL USUARIO SI DESEA REALIZAR OTRA CONVERSION O FINALIZAR EL PROGRAMA

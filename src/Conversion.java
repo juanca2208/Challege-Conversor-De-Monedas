@@ -13,7 +13,7 @@ public class Conversion {
 					break;
 			}
 			case "De Pesos a Dolar":{
-				valor = v / 389;
+				valor = Math.round( v / 389);
 				String v2 = String.valueOf(valor);
 				resultadoAmostrar = "Tienes $"+v2+ " En Dolares";
 				break;
