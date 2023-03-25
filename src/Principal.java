@@ -6,9 +6,13 @@ public class Principal {
 	static boolean bandera = true;
 	
 	public static void main(String[] args) {
-		 
+		
 		MenuPrincipal menuPrincipal = new MenuPrincipal();
-		menuPrincipal.setVisible(true);	
+		menuPrincipal.setVisible(true);
+		
+		/*EntradaDeValor.opcionElegidadMP = "Conversor de Moneda";
+		Monedas monedas = new Monedas();
+		monedas.setVisible(true);*/
 						
 	
 		

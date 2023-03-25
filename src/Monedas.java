@@ -24,7 +24,7 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	public Monedas () {
 		
 		setSize(600,300);
-		setTitle("Monedas");
+		setTitle("Conversor");
 		setLocationRelativeTo(null);// Metodo para que la ventana se posicione en el centro de la pantalla
 		getContentPane().setLayout(null);		
 		add(crearJlabel());
@@ -35,36 +35,37 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	public void agregarBotones() {
 		// Boton OK
 		botonOk = new JButton();
-		botonOk.setBounds(120,170, 70, 20);
+		botonOk.setBounds(145,200, 110, 20);
 		botonOk.setText("OK");
 		add(botonOk);
 		botonOk.addActionListener(this);
 		// Botn¿on Cancelar
 		botonCancelar = new JButton();
-		botonCancelar.setBounds(170, 170, 70, 20);
+		botonCancelar.setBounds(320, 200, 110, 20);
 		botonCancelar.setText("Cancelar");
+		add(botonCancelar);
 		botonCancelar.addActionListener(this);
 		
 	}
 
 	public JLabel crearJlabel() {
 		label= new JLabel();
-		if(EntradaDeValor.opcionElegidadMP == "Conversor de Moneda") {
+		if(MenuPrincipal.tipoDeConversion == "Conversor de Moneda") {
 			label.setText("Elige la moneda a la que deseas convertir tu dinero");
+			label.setBounds(130, 20, 375, 50);
 		}else {
-			label.setText("Elija el tipos de temperatura que desea convertir");
+			label.setText("Elija el tipo de temperatura que desea convertir");
+			label.setBounds(130, 30, 375, 50);
 		}
-		label.setBounds(160, 80, 280, 50);
-		
 		return label;
 	}
 	// Creamos JcomboBox con las opciones de conversion de monedas
 	public JComboBox<String> crearjComboBox() {
 		 
-		if(EntradaDeValor.opcionElegidadMP == "Conversor de Moneda") {
+		if(MenuPrincipal.tipoDeConversion == "Conversor de Moneda") {
 			combo = new JComboBox <String>();
-			combo.setBounds(170, 120, 250, 20);
-			combo.addItem("Seleccione");
+			combo.setBounds(170, 65, 250, 20);
+			combo.addItem("Seleccione Divisa");
 			combo.addItem("De Pesos a Dolar");
 			combo.addItem("De Pesos a Euros");
 			combo.addItem("De Pesos a Libras");
@@ -79,7 +80,7 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 			combo.addItemListener(this);
 		}else {
 			combo = new JComboBox<String>();
-			combo.setBounds(170, 120, 250, 20);
+			combo.setBounds(170, 90, 250, 20);
 			combo.addItem("Seleccione");
 			combo.addItem("De Celsius a Fahrenheit");
 			combo.addItem("De Celsius a Kelvin");
@@ -106,21 +107,24 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 				// LLama al metodo de la clase conversion y se le envia un double y el item del tipo de conversion
 				/* Por ultimo el metodo realizarConversion Devuelve el resultado solicitado por el usuario en un tipo 
 				 * de dato String que es asignado a la variable valorConvertidoString*/
-				valorConvertidoString = conversion.relizarConversion(EntradaDeValor.valorConvertido, selectItem); ;
-				setVisible(false);
-				JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
-				ventanaDeseaContinuar();
+			if(combo.getSelectedIndex()== 0) {
+				JOptionPane.showMessageDialog(null,"Debe seleccionar un Item de Conversion","Conversor Challege",JOptionPane.WARNING_MESSAGE);
 		}else if(e.getSource()== botonCancelar) {
 			setVisible(false);
 			System.exit(0);
+		}else {
+			valorConvertidoString = conversion.relizarConversion(EntradaDeValor.valorConvertido, selectItem); ;
+			setVisible(false);
+			JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+			ventanaDeseaContinuar();
 		}
 		
-	}
+	}}
 	// VENTANA DE DIALLOGO QUE LE CONSULTA AL USUARIO SI DESEA REALIZAR OTRA CONVERSION O FINALIZAR EL PROGRAMA
 	private void ventanaDeseaContinuar() {
 		// TODO Auto-generated method stub
 		int respuesta;
-		respuesta = JOptionPane.showConfirmDialog(null,"¿Desea realizar otra Converison", "Conversor Challege",JOptionPane.YES_NO_CANCEL_OPTION);
+		respuesta = JOptionPane.showConfirmDialog(null,"¿Desea realizar otra Converison?","Conversor Challege",JOptionPane.YES_NO_CANCEL_OPTION);
 		if(respuesta == 0) {
 			MenuPrincipal mp = new MenuPrincipal();
 			mp.setVisible(true);

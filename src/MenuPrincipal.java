@@ -16,12 +16,14 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 	JButton btnOk;
 	JButton btnCancelar;
 	public static String tipoDeConversion = "";
+	
 
 	public MenuPrincipal() {
 		//JFrame miJFrame = new JFrame("Menu");
-		   setSize(600,300);
-		   setTitle("Menu");
+		   setSize(630,300);
+		   setTitle("Conversor Menu Principal");
 		   setLocationRelativeTo(null);// Metodo para que la ventana se posicione en el centro de la pantalla
+		   setResizable(false);
 		   add(crearMiJapanel());
 			
 		}
@@ -29,7 +31,7 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 	    // componente JPanel`
 		public JPanel crearMiJapanel() {
 			JPanel miJPanel = new JPanel();
-		    miJPanel.setSize(700,600);
+		    miJPanel.setSize(670,600);
 		    miJPanel.setLayout(null);
 		    miJPanel.add(crearMiJLabel());
     	    miJPanel.add(crearJComboBox());
@@ -42,15 +44,15 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 	    // componente JTextField`
 		public JLabel crearMiJLabel() {
 			JLabel miJLabel = new JLabel();
-		    miJLabel.setText("Seleccione un opcion de Conversion ");
-		    miJLabel.setBounds(150, 20, 600, 50);
+		    miJLabel.setText("Conversor de Monedas y Temperaturas");
+		    miJLabel.setBounds(150, 20, 660, 50);
 		    return miJLabel;
 		}
 	    // COMPONENTE JCOMOBOBOX ES EL MENU DE OPCIONES DE CONVERSION
 		public JComboBox<String> crearJComboBox() {
 			box = new JComboBox<String>();//<>
-    	    box.setBounds(160, 70, 240, 25);
-    	    box.addItem("Seleccione");
+    	    box.setBounds(155, 70, 264, 25);
+    	    box.addItem("Seleccione Opcion de Conversion");
     	    box.addItem("Conversor de Moneda");
     	    box.addItem("Conversor de Temperatura");
     	    
@@ -64,7 +66,7 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 			
 			btnOk = new JButton();
 			btnOk.setText("OK");
-			btnOk.setBounds(170, 160, 70, 20);
+			btnOk.setBounds(170, 160, 110, 20);
 			btnOk.addActionListener(this);
 			
 			return btnOk;
@@ -74,36 +76,41 @@ public class MenuPrincipal extends JFrame implements ActionListener,ItemListener
 			
 			btnCancelar = new JButton();
 			btnCancelar.setText("Cancelar");
-			btnCancelar.setBounds(280, 160, 110, 20);
+			btnCancelar.setBounds(300, 160,110, 20);
 			btnCancelar.addActionListener(this);
 			return btnCancelar;
 			
 		}
 		// Metodo que se dispara cuando se presiona el boton ok
 				@Override
-				public void actionPerformed(ActionEvent e ) {
-					if (e.getSource() == btnOk) {
+		public void actionPerformed(ActionEvent e ) {
+			if (e.getSource() == btnOk) {
 						/*seleccion =  box.getSelectedItem().toString();
 						setTitle(seleccion);*/
-						EntradaDeValor entrada = new EntradaDeValor();
-						entrada.setVisible(true);
-						setVisible(false);
-						
-					}else if (e.getSource()== btnCancelar) {
-						setVisible(false);
-						System.exit(0);
-					}
+				if(box.getSelectedIndex()== 0) {
+					JOptionPane.showMessageDialog(null,"Debe seleccionar un tipo de Conversion","Conversor Challege",JOptionPane.WARNING_MESSAGE);
+				}else if (e.getSource()== btnCancelar) {
+							setVisible(false);
+							System.exit(0);
+				}else {
+							EntradaDeValor entrada = new EntradaDeValor();
+							entrada.setVisible(true);
+							setVisible(false);
+						}
+					}	
 				}
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if(e.getSource()== box) {
-				//tipoDeConversion = box.getSelectedItem().toString();
-				EntradaDeValor.opcionElegidadMP = box.getSelectedItem().toString();
+				 tipoDeConversion = box.getSelectedItem().toString();
+			}
+					
+				
 				
 			}
-			
-		}
+
+		
 		
 		
 		

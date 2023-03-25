@@ -20,7 +20,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 	public static String valorAConvertir= "";
 	// El atributo valorConvertido es el valor convertido a tipo Double 
 	public static double valorConvertido;
-	public static String opcionElegidadMP;
+	
 	
 	// CONSTRUCTOR
 	public EntradaDeValor() {
@@ -35,6 +35,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 	public JPanel crearMiJapanel() {
 		jPanel = new JPanel();
 		jPanel.setSize(800,700);
+		setResizable(false);
 		jPanel.setLayout(null);
 		jPanel.add(crearMiJLabel());
 		jPanel.add(crearJTextField());
@@ -52,7 +53,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 	private JLabel crearMiJLabel() {
 		jLabel = new JLabel();
 		jLabel.setBounds(140, 20, 600, 50);
-		if (opcionElegidadMP == "Conversor de Moneda") {
+		if (MenuPrincipal.tipoDeConversion == "Conversor de Moneda") {
 			jLabel.setText("Ingrese la cantidad de dinero que deseas convertir");
 		}else {
 			jLabel.setText("Ingrese el valor de temperatura que deseas convertir");
