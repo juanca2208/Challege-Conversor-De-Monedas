@@ -86,7 +86,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 			valorAConvertir = field.getText().toString();
 			try {
 				valorConvertido = Double.parseDouble(valorAConvertir);
-				Monedas monedas = new Monedas();
+				OpcionesDeConversion monedas = new OpcionesDeConversion();
 				monedas.setVisible(true);
 				setVisible(false);
 									

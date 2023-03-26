@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class Monedas extends JFrame implements ItemListener,ActionListener{
+public class OpcionesDeConversion extends JFrame implements ItemListener,ActionListener{
 	// ATRIBUTOS
 	private JLabel label;
 	private JComboBox <String> combo;
@@ -21,7 +21,7 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 	
 	
 	// CONSTRUCTOR
-	public Monedas () {
+	public OpcionesDeConversion () {
 		
 		setSize(600,300);
 		setTitle("Conversor");
