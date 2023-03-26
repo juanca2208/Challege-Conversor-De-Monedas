@@ -9,6 +9,7 @@ public class Principal {
 		
 		MenuPrincipal menuPrincipal = new MenuPrincipal();
 		menuPrincipal.setVisible(true);
+		
 			
 	}
 	

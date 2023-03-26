@@ -107,24 +107,25 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 				// LLama al metodo de la clase conversion y se le envia un double y el item del tipo de conversion
 				/* Por ultimo el metodo realizarConversion Devuelve el resultado solicitado por el usuario en un tipo 
 				 * de dato String que es asignado a la variable valorConvertidoString*/
-			if(combo.getSelectedIndex()== 0) {
-				JOptionPane.showMessageDialog(null,"Debe seleccionar un Item de Conversion","Conversor Challege",JOptionPane.WARNING_MESSAGE);
+				if(combo.getSelectedIndex()== 0) {
+					JOptionPane.showMessageDialog(null,"Debe seleccionar un Item de Conversion","Conversor Challege",JOptionPane.WARNING_MESSAGE);
+				}else {
+					valorConvertidoString = conversion.relizarConversion(EntradaDeValor.valorConvertido, selectItem); ;
+					setVisible(false);
+					JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+					ventanaDeseaContinuar();
+				}// MODIFICAR CODIGO HACER FUNCIONAR BOTON CANCELAR
+		
 		}else if(e.getSource()== botonCancelar) {
 			setVisible(false);
 			System.exit(0);
-		}else {
-			valorConvertidoString = conversion.relizarConversion(EntradaDeValor.valorConvertido, selectItem); ;
-			setVisible(false);
-			JOptionPane.showMessageDialog(null, valorConvertidoString.toString(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
-			ventanaDeseaContinuar();
-		}// MODIFICAR CODIGO HACER FUNCIONAR BOTON CANCELAR
-		
-	}}
+		}
+	}
 	// VENTANA DE DIALLOGO QUE LE CONSULTA AL USUARIO SI DESEA REALIZAR OTRA CONVERSION O FINALIZAR EL PROGRAMA
 	private void ventanaDeseaContinuar() {
 		// TODO Auto-generated method stub
 		int respuesta;
-		respuesta = JOptionPane.showConfirmDialog(null,"¿Desea realizar otra Converison?","Conversor Challege",JOptionPane.YES_NO_CANCEL_OPTION);
+		respuesta = JOptionPane.showConfirmDialog(null,"¿Desea realizar otra Conversion?","Conversor Challege",JOptionPane.YES_NO_CANCEL_OPTION);
 		if(respuesta == 0) {
 			MenuPrincipal mp = new MenuPrincipal();
 			mp.setVisible(true);
