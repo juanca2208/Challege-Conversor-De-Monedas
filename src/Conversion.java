@@ -81,7 +81,7 @@ public class Conversion {
 			}
 			// CONVERSOR DE TEMPERATURA
 			case "De Celsius a Fahrenheit":{
-				valor = (v * 9/5) + 32;
+				valor = Math.round(v * 9/5) + 32;
 				String v6 = String.valueOf(valor);
 				resultadoAmostrar = "Temperatura "+ v6 + "°F Grados Fahrenheit";
 				break;

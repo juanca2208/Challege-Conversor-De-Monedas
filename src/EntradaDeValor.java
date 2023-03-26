@@ -26,6 +26,7 @@ public class EntradaDeValor  extends JFrame implements ActionListener{
 		setTitle("Entrada");
 		setSize(600,200);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		add(crearMiJapanel());
 	}
 	

@@ -27,6 +27,7 @@ public class Monedas extends JFrame implements ItemListener,ActionListener{
 		setTitle("Conversor");
 		setLocationRelativeTo(null);// Metodo para que la ventana se posicione en el centro de la pantalla
 		getContentPane().setLayout(null);		
+		setResizable(false);
 		add(crearJlabel());
 		add(crearjComboBox());
 		agregarBotones();
