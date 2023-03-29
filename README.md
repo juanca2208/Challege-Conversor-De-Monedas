@@ -21,4 +21,11 @@ Se creara un conversor de Divisas y tambien se agregara la funcion de conversion
 </div>
 <h2>Funcionamiento de la Aplicacion</h2>
 
+1- Al inicio se presenta al usuario el Menu Principal donde podra elegir el tipo de conversion.
+
+![](src/Imagenes%20y%20videos/1%20Menu%20Principal.JPEG)
+
+2- Luego el usuario elige el tipo de conversion que desea realizar.
+
+
 
