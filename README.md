@@ -53,5 +53,13 @@ Se creara un conversor de Divisas y tambien se agregara la funcion de conversion
 
 ![](src/Imagenes%20y%20videos/7%20ProgramaFinalizado.png)
 
+<h2>Estado del Proyecto</h2>
+
+El Proyecto cumple con los requerimientos solicitados.
+
+- A futuro se hara una mejora de la interfaz grafica para que se mas interactiva para cualquier tipo de usuario.
+
+- Tambien se puede agregar una Api para obtener valores del tipo de cambio de divisas en tiempo real.
+
 
 
