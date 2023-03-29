@@ -27,5 +27,31 @@ Se creara un conversor de Divisas y tambien se agregara la funcion de conversion
 
 2- Luego el usuario elige el tipo de conversion que desea realizar.
 
+![](src/Imagenes%20y%20videos/2.1Seleccion%20de%20Conversion.png)
+
+3- Al seleccionar el tipo de conversion y luego presionar el boton OK, el usuario debe ingresar para el siguiente ejemplo la cantidad de dinero que desea convertir.
+
+![](src/Imagenes%20y%20videos/2%20EntrdaValor.png)
+
+![](src/Imagenes%20y%20videos/3%20IngresoDelValorDelUsuario.png)
+
+4- Una vez ingresado el valor, se debe elegir al tipo de divisa que se desea convertir. En este caso el usuario elige convertir de Pesos a Euros.
+
+![](src/Imagenes%20y%20videos/3.1%20SeleccionDeDivisa.png)
+
+![](src/Imagenes%20y%20videos/4%20SelecccionDeEuro.png)
+
+5- Se muestra el resultado de la converion en pantalla.
+
+![](src/Imagenes%20y%20videos/5%20Resultado.png)
+
+6- Luego del resultado de la conversion el usuario debe decidir si desea realizar otra conversion, si presiona el boton Yes se vuelve a mostrar el Menu Principal y comienza a ejecutar de nuevo la aplicacion. 
+
+![](src/Imagenes%20y%20videos/6%20Desea%20Continuar.png)
+
+7- Si el usuario no desea realizar otra conversion, presiona el boton No y finaliza el programa.
+
+![](src/Imagenes%20y%20videos/7%20ProgramaFinalizado.png)
+
 
 
